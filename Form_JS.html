@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <title>Signup Page</title>
+</head>
+<body>
+    <header class="bg-dark text-center">
+        <h1 class="text-light p-4">
+            Welcome to Bacancy Technology
+        </h1>
+    </header>
+    <section class="jumbotron bg-light mt-5">
+        <div class="container">
+            <div class="shadow text-light bg-dark rounded text-center">
+                <div class="border-bottom py-3 w-75 mx-auto">
+                    <h3 class="border-light rounded-top">Signup Page</h3>
+                </div>
+                <!-- Firstname & Lastname -->
+                <div class="input-group w-75 p-3 mx-auto">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">First and last name</span>
+                    </div>
+                    <input type="text" id="fname" aria-label="First name" class="form-control">
+                    <input type="text" id="lname" aria-label="Last name" class="form-control">
+                </div>
+                <!-- Email & Password -->
+                <div class="input-group w-75 p-3 mx-auto">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Email And Password</span>
+                    </div>
+                    <input type="text" id="email" aria-label="Email" class="form-control">
+                    <input type="password" id="pass" aria-label="Password" class="form-control">
+                </div>
+                <!-- Country, Gender & Hobbies -->
+                <div class="d-flex flex-column flex-sm-row w-75 mx-auto">
+                    <div class="input-group col-5 p-3">
+                        <div class="input-group-prepend">
+                        <label class="input-group-text" for="country">Country</label>
+                        </div>
+                        <select class="custom-select" id="country">
+                        <option selected>India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Dubai">Dubai</option>
+                        </select>
+                    </div>
+                    <div class="input-group col-7 p-3">
+                        <div class="input-group-prepend" style="height: 38px;">
+                            <div class="input-group-text">
+                                <input  type="radio" name="genderRadio" id="gender" value="Male" aria-label="Radio button for Gender" checked>
+                                <label class="input-group-text border-0" for="gender">Male</label>
+                            </div>
+                            <div class="input-group-text">
+                                <input  type="radio" name="genderRadio" id="gender" value="Female" aria-label="Radio button for Gender">
+                                <label class="input-group-text border-0" for="gender">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group p-3 w-75 mx-auto">
+                    <div class="input-group-prepend" style="height: 38px;">
+                        <div class="input-group-text">
+                            <input  type="checkbox" name="hobbyCheck" id="hobby" value="Movie" aria-label="Check box for hobby">
+                            <label class="input-group-text border-0" for="hobby">Movie</label>
+                        </div>
+                        <div class="input-group-text">
+                            <input  type="checkbox" name="hobbyCheck" id="hobby" value="Cricket" aria-label="Check box for hobby">
+                            <label class="input-group-text border-0" for="hobby">Cricket</label>
+                        </div>
+                        <div class="input-group-text">
+                            <input  type="checkbox" name="hobbyCheck" id="hobby" value="Reading" aria-label="Check box for hobby">
+                            <label class="input-group-text border-0" for="hobby">Reading</label>
+                        </div>
+                        <div class="input-group-text">
+                            <input  type="checkbox" name="hobbyCheck" id="hobby" value="Travelling" aria-label="Check box for hobby">
+                            <label class="input-group-text border-0" for="hobby">Travelling</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group p-3 w-75 mx-auto">
+                    <div class="pr-2"><button type="button" id="submitBtn" onclick="data_retrieve()"  class="btn btn-outline-secondary">Submit</button></div>
+                    <div><button type="button" id="resetBtn" class="btn btn-outline-secondary"><a href="#">Reset</a></button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function data_retrieve() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let email = document.getElementById("email").value;
+            let pass = document.getElementById("pass").value;
+            let country = document.getElementById("country").value;
+            let genderRadio = document.getElementsByName("genderRadio");
+            let gender;
+            for (let i of genderRadio){
+                if(i.checked){
+                    gender=i.value;
+                }
+            }
+            let hobbyCheck = document.getElementsByName("hobbyCheck");
+            let hobby = 'Hobbies :';
+            for (let i of hobbyCheck){
+                if(i.checked){
+                    hobby = hobby + " " + i.value;
+                }
+            }
+            console.log(fname);
+            console.log(lname);
+            console.log(email);
+            console.log(pass);
+            console.log(country);
+            console.log(gender);
+            console.log(hobby);
+
+            sessionStorage.setItem("First name", fname);
+            sessionStorage.setItem("Last name", lname);
+            sessionStorage.setItem("Email ID", email);
+            sessionStorage.setItem("Country", country);
+            sessionStorage.setItem("Gender", gender);
+            sessionStorage.setItem("Hobbies", hobby);
+
+            localStorage.setItem("First name", fname);
+            localStorage.setItem("Last name", lname);
+            localStorage.setItem("Email ID", email);
+            localStorage.setItem("Country", country);
+            localStorage.setItem("Gender", gender);
+            localStorage.setItem("Hobbies", hobby);
+        }
+    </script>
+</body>
+</html>
